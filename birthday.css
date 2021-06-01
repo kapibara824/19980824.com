@@ -1,0 +1,34 @@
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.sub-title {
+  color: coral;
+  text-align: center;
+  padding-bottom: 5%;
+}
+.timer {
+  text-align: center;
+  color: rgb(28, 255, 20);
+  font-size: xx-large;
+}
+
+.today-next {
+  margin-top: 5%;
+  text-align: center;
+}
+
+.clock {
+  text-align: center;
+}
+
+.clock-time {
+  color: firebrick;
+  font-size: xx-large;
+}
+.clock-string {
+  font-size: large;
+}
