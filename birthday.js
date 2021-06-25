@@ -4,17 +4,17 @@ function nextbirthday(year, month, date) {
     month = 8;
     date = 24;
     return [addzero(year) + "-" + addzero(month) + "-" + addzero(date)];
-  } else if ((month = 8)) {
+  } else if (month == 8) {
     if (date > 23) {
       year++;
       month = 8;
       date = 24;
       return [addzero(year) + "-" + addzero(month) + "-" + addzero(date)];
-    } else {
+    }
+  } else {
       month = 8;
       date = 24;
       return [addzero(year) + "-" + addzero(month) + "-" + addzero(date)];
-    }
   }
   return [addzero(year) + "-" + addzero(month) + "-" + addzero(date)];
 }
