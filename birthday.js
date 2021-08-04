@@ -10,13 +10,16 @@ function nextbirthday(year, month, date) {
       month = 8;
       date = 24;
       return [addzero(year) + "-" + addzero(month) + "-" + addzero(date)];
+    } else {
+      month = 8;
+      date = 24;
+      return [addzero(year) + "-" + addzero(month) + "-" + addzero(date)];
     }
   } else {
       month = 8;
       date = 24;
       return [addzero(year) + "-" + addzero(month) + "-" + addzero(date)];
   }
-  return [addzero(year) + "-" + addzero(month) + "-" + addzero(date)];
 }
 function addzero(x) {
   if (x < 10) {
