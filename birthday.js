@@ -1,62 +1,42 @@
-function nextbirthday(year, month, date) {
-  if (month > 8) {
-    year++;
-    month = 8;
-    date = 24;
-    return [addzero(year) + "-" + addzero(month) + "-" + addzero(date)];
-  } else if (month == 8) {
-    if (date > 23) {
-      year++;
-      month = 8;
-      date = 24;
-      return [addzero(year) + "-" + addzero(month) + "-" + addzero(date)];
-    } else {
-      month = 8;
-      date = 24;
-      return [addzero(year) + "-" + addzero(month) + "-" + addzero(date)];
-    }
-  } else {
-      month = 8;
-      date = 24;
-      return [addzero(year) + "-" + addzero(month) + "-" + addzero(date)];
+function getNextBirthdayDate() {
+  var today = new Date();
+  var birthday = new Date(today.getFullYear(), 7, 24)
+
+  var diff = today - birthday
+  
+  // 差が正の値だったら今年の誕生日は過ぎているので来年のDateを生成する
+  if (Math.sign(diff) == 1) {
+    birthday = new Date(today.getFullYear() + 1, 7, 24)
   }
+
+  return birthday
+
 }
+
+function getDateAsString(date) {
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1;
+  var date = date.getDate();
+
+  return year + "-" + addzero(month) + "-" + addzero(date);
+}
+
 function addzero(x) {
-  if (x < 10) {
-    return "0" + x;
-  } else {
-    return x;
-  }
+  return ("0" + x).slice(-2);
 }
+
 function addzeromili(x) {
-  if (x < 100) {
-    if (x < 10) {
-      return "00" + x;
-    } else {
-      return "0" + x;
-    }
-  } else {
-    return x;
-  }
+  return ("00" + x).slice(-3);
 }
+
 function birthday() {
   var today = new Date();
-  var year = today.getFullYear();
-  var month = today.getMonth() + 1;
-  var date = today.getDate();
-  var birthday = nextbirthday(year, month, date);
-  var now = year + "-" + addzero(month) + "-" + addzero(date);
+  var birthday = getNextBirthdayDate();
 
-  document.getElementById("birthday").innerHTML = birthday;
-  document.getElementById("today").innerHTML = now;
+  document.getElementById("today").innerHTML = getDateAsString(today);
+  document.getElementById("birthday").innerHTML = getDateAsString(birthday);
 
-  var hour = today.getHours();
-  var minute = today.getMinutes();
-  var second = today.getSeconds();
-  var milisecond = today.getMilliseconds();
-  var date1 = new Date();
-  var date2 = new Date(birthday);
-  var diff = date2 - date1;
+  var diff = birthday - today;
   const mili = Math.floor(diff % 1000);
   const sec = Math.floor(diff / 1000) % 60;
   const min = Math.floor(diff / 1000 / 60) % 60;
